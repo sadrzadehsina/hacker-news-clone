@@ -21,7 +21,7 @@ const App = () => {
 		const storyIds = await axios.get('https://hacker-news.firebaseio.com/v0/topstories.json')
 			.then(response => response.data);
 
-		storyIds.splice(0, 10).map(id => {
+		storyIds.splice(0, 15).map(id => {
 			const story = axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(response => response.data);
 			topStories.push(story);
 		});
@@ -32,8 +32,8 @@ const App = () => {
 	const { isLoading, isError, data: topStories, error } = useQuery('topStories', getTopStories);
 
 	return (
-		<Container>
-			<Box backgroundColor="whitesmoke" padding="0.5rem">
+		<Container isFluid>
+			<Box padding="0.5rem">
 				<Header />
 				{
 					isLoading ? 
