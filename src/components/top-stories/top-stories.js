@@ -13,7 +13,6 @@ const TopStories = ({ items }) => {
 			<Heading use='h5'><Link key={item.id} href={item.url}>{item.title}</Link></Heading>
 			<Set spacing="minor-1">
 				<Tag>{item.by}</Tag>
-				<Tag>{item.type}</Tag>
 				<Tag>{dayjs(item.time * 1000).fromNow()}</Tag>
 			</Set>
 		</Box>

@@ -2,34 +2,21 @@ import axios from 'axios';
 import { useQuery, useMutation, useQueryCache, QueryCache, ReactQueryCacheProvider } from 'react-query'
 import { Container, Box } from 'bumbag';
 
-import { Header, TopStories } from './components';
+import { Header, Loading, TopStories } from './components';
+import { useTopStories, useAsks } from './hooks';
 
 const App = () => {
-	
+
 	const queryCache = new QueryCache({
 		defaultConfig: {
 			queries: {
 				refetchOnWindowFocus: false,
 			},
 		},
-	})
+	});
 
-	const getTopStories = async () => {
-
-		const topStories = [];
-
-		const storyIds = await axios.get('https://hacker-news.firebaseio.com/v0/topstories.json')
-			.then(response => response.data);
-
-		storyIds.splice(0, 15).map(id => {
-			const story = axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(response => response.data);
-			topStories.push(story);
-		});
-
-		return Promise.all(topStories).then(items => items.sort((a, b) => b.score > a.score ? 1 : -1));
-	};
-
-	const { isLoading, isError, data: topStories, error } = useQuery('topStories', getTopStories);
+	const { isLoading, isError, data: topStories, error } = useTopStories();
+	// const { isLoading, isError, data: asks, error } = useAsks();
 
 	return (
 		<Container isFluid>
@@ -37,7 +24,7 @@ const App = () => {
 				<Header />
 				{
 					isLoading ? 
-					<span>Wait to load stories</span> : 
+					<Loading /> : 
 					(
 						<ReactQueryCacheProvider queryCache={queryCache}>
 							<TopStories items={topStories} />
