@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider as BumbagProvider } from 'bumbag';
 
 import App from './App';
@@ -8,7 +9,9 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <React.StrictMode>
     <BumbagProvider>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </BumbagProvider>
   </React.StrictMode>,
   document.getElementById('root')

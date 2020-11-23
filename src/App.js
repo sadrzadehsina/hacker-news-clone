@@ -1,39 +1,28 @@
-import axios from 'axios';
-import { useQuery, useMutation, useQueryCache, QueryCache, ReactQueryCacheProvider } from 'react-query'
 import { Container, Box } from 'bumbag';
-
 import { Header, Loading, TopStories } from './components';
-import { useTopStories, useAsks } from './hooks';
+
+import React from 'react';
+import {
+	Switch,
+	Route,
+} from 'react-router-dom';
+
 
 const App = () => {
-
-	const queryCache = new QueryCache({
-		defaultConfig: {
-			queries: {
-				refetchOnWindowFocus: false,
-			},
-		},
-	});
-
-	const { isLoading, isError, data: topStories, error } = useTopStories();
-	// const { isLoading, isError, data: asks, error } = useAsks();
 
 	return (
 		<Container isFluid>
 			<Box padding="0.5rem">
 				<Header />
-				{
-					isLoading ? 
-					<Loading /> : 
-					(
-						<ReactQueryCacheProvider queryCache={queryCache}>
-							<TopStories items={topStories} />
-						</ReactQueryCacheProvider>
-					)
-				}
+				<Switch>
+					<Route path="/stories"><TopStories /></Route>
+					<Route path="/questions"><h1>Questions</h1></Route>
+					<Route path="/jobs"><h1>Jobs</h1></Route>
+					<Route path="/"><h1>Home</h1></Route>
+				</Switch>
 			</Box>
 		</Container>
-	)
+	);
 
 };
 
