@@ -1,12 +1,7 @@
-import { Container, Box } from 'bumbag';
-import { Header, Loading, TopStories } from './components';
-
 import React from 'react';
-import {
-	Switch,
-	Route,
-} from 'react-router-dom';
-
+import { Switch, Route } from 'react-router-dom';
+import { Container, Box } from 'bumbag';
+import { Header, Navigation, Loading, TopStories } from './components';
 
 const App = () => {
 
@@ -14,6 +9,7 @@ const App = () => {
 		<Container isFluid>
 			<Box padding="0.5rem">
 				<Header />
+				<Navigation />
 				<Switch>
 					<Route path="/stories"><TopStories /></Route>
 					<Route path="/questions"><h1>Questions</h1></Route>
