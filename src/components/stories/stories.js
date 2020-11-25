@@ -13,9 +13,9 @@ import {
 
 import { Loading } from '../loading';
 
-import { useTopStories } from '../../hooks';
+import { useFetch } from '../../hooks';
 
-const TopStories = () => {
+export const Stories = () => {
 
 	dayjs.extend(relativeTime);
 
@@ -27,7 +27,11 @@ const TopStories = () => {
 		},
 	});
 
-	const { isLoading, isError, data: items, error } = useTopStories();
+	const { isLoading, isError, data: items, error } = useFetch({ 
+		key: 'stories', 
+		allUrl: 'https://hacker-news.firebaseio.com/v0/topstories.json', 
+		oneUrl: 'https://hacker-news.firebaseio.com/v0/item/',
+	});
 
 	if (isLoading) return <Loading />;
 
@@ -48,5 +52,3 @@ const TopStories = () => {
 	);
 
 };
-
-export { TopStories };

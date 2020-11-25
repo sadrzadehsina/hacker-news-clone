@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Container, Box } from 'bumbag';
-import { Header, Navigation, Loading, TopStories } from './components';
+import { Header, Navigation, Loading, Stories, Questions, Jobs } from './components';
 
 const App = () => {
 
@@ -11,9 +11,9 @@ const App = () => {
 				<Header />
 				<Navigation />
 				<Switch>
-					<Route path="/stories"><TopStories /></Route>
-					<Route path="/questions"><h1>Questions</h1></Route>
-					<Route path="/jobs"><h1>Jobs</h1></Route>
+					<Route path="/stories"><Stories /></Route>
+					<Route path="/questions"><Questions /></Route>
+					<Route path="/jobs"><Jobs /></Route>
 					<Route path="/"><h1>Home</h1></Route>
 				</Switch>
 			</Box>

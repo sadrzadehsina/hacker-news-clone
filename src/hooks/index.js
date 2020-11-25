@@ -1,1 +1,1 @@
-export * from './use-top-stories';
+export * from './use-fetch';
