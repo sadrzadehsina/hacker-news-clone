@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Link, Box, Tag, Set } from 'bumbag';
+import { Heading, Link, Box, Tag, Set, Button, Flex } from 'bumbag';
 
 import * as dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
@@ -27,7 +27,7 @@ export const Stories = () => {
 		},
 	});
 
-	const { isLoading, isError, data: items, error } = useFetch({ 
+	const { isLoading, isError, data, error, canFetchMore, isFetchingMore, fetchMore } = useFetch({ 
 		key: 'stories', 
 		allUrl: 'https://hacker-news.firebaseio.com/v0/topstories.json', 
 		oneUrl: 'https://hacker-news.firebaseio.com/v0/item/',
@@ -38,15 +38,33 @@ export const Stories = () => {
 	return (
 		<ReactQueryCacheProvider queryCache={queryCache}>
 			{
-				items.map(item => (
-					<Box key={item.id} padding='1rem'>
-						<Heading use='h5'><Link key={item.id} href={item.url}>{item.title}</Link></Heading>
-						<Set spacing="minor-1">
-							<Tag>{item.by}</Tag>
-							<Tag>{dayjs(item.time * 1000).fromNow()}</Tag>
-						</Set>
-					</Box>
+				data.map((group, i) => (
+					<React.Fragment key={i}>
+						{
+							group.items.map(item => (
+								<Box key={item.id} padding='1rem'>
+									<Heading use='h5'><Link key={item.id} href={item.url}>{item.title}</Link></Heading>
+									<Set spacing="minor-1">
+										<Tag>{item.by}</Tag>
+										<Tag>{dayjs(item.time * 1000).fromNow()}</Tag>
+									</Set>
+								</Box>
+							))
+						}
+					</React.Fragment>
 				))
+			}
+			{ 
+				canFetchMore && 
+				<Flex alignX='center'>
+					<Button 
+						isLoading={!canFetchMore || isFetchingMore}
+						disabled={!canFetchMore || isFetchingMore}
+						onClick={() => fetchMore()}
+					>
+						Load More
+					</Button> 
+				</Flex>
 			}
 		</ReactQueryCacheProvider>
 	);
