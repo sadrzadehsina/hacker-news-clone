@@ -10,9 +10,9 @@ export const Navigation = ({ ...props }) => {
 
 	return (
 		<Set>
-			<Button variant="ghost" onClick={() => go('/stories')}>Stories</Button>
-			<Button variant="ghost" onClick={() => go('/questions')}>Questions</Button>
-			<Button variant="ghost" onClick={() => go('/jobs')}>Jobs</Button>
+			<Button variant="ghost" onClick={() => go('/hacker-news-clone/stories')}>Stories</Button>
+			<Button variant="ghost" onClick={() => go('/hacker-news-clone/questions')}>Questions</Button>
+			<Button variant="ghost" onClick={() => go('/hacker-news-clone/jobs')}>Jobs</Button>
 		</Set>
 	);
 

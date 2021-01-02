@@ -11,10 +11,10 @@ const App = () => {
 				<Header />
 				<Navigation />
 				<Switch>
-					<Route path="/stories"><Stories /></Route>
-					<Route path="/questions"><Questions /></Route>
-					<Route path="/jobs"><Jobs /></Route>
-					<Route path="/"><h1>Home</h1></Route>
+					<Route path="/hacker-news-clone/stories"><Stories /></Route>
+					<Route path="/hacker-news-clone/questions"><Questions /></Route>
+					<Route path="/hacker-news-clone/jobs"><Jobs /></Route>
+					<Route path="/hacker-news-clone"><h1>Home</h1></Route>
 				</Switch>
 			</Box>
 		</Container>
