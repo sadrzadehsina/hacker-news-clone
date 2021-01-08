@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from "react-helmet";
 import { Heading, Link, Box, Tag, Set, Button, Flex } from 'bumbag';
 
 import * as dayjs from 'dayjs';
@@ -36,37 +37,40 @@ export const Stories = () => {
 	if (isLoading) return <Loading />;
 
 	return (
-		<ReactQueryCacheProvider queryCache={queryCache}>
-			{
-				data.map((group, i) => (
-					<React.Fragment key={i}>
-						{
-							group.items.map(item => (
-								<Box key={item.id} padding='1rem'>
-									<Heading use='h5'><Link key={item.id} href={item.url}>{item.title}</Link></Heading>
-									<Set spacing="minor-1">
-										<Tag>{item.by}</Tag>
-										<Tag>{dayjs(item.time * 1000).fromNow()}</Tag>
-									</Set>
-								</Box>
-							))
-						}
-					</React.Fragment>
-				))
-			}
-			{ 
-				canFetchMore && 
-				<Flex alignX='center'>
-					<Button 
-						isLoading={!canFetchMore || isFetchingMore}
-						disabled={!canFetchMore || isFetchingMore}
-						onClick={() => fetchMore()}
-					>
-						Load More
-					</Button> 
-				</Flex>
-			}
-		</ReactQueryCacheProvider>
+		<div>
+			<Helmet><title>Hacker News Clone | Stories</title></Helmet>
+			<ReactQueryCacheProvider queryCache={queryCache}>
+				{
+					data.map((group, i) => (
+						<React.Fragment key={i}>
+							{
+								group.items.map(item => (
+									<Box key={item.id} padding='1rem'>
+										<Heading use='h5'><Link key={item.id} href={item.url}>{item.title}</Link></Heading>
+										<Set spacing="minor-1">
+											<Tag>{item.by}</Tag>
+											<Tag>{dayjs(item.time * 1000).fromNow()}</Tag>
+										</Set>
+									</Box>
+								))
+							}
+						</React.Fragment>
+					))
+				}
+				{ 
+					canFetchMore && 
+					<Flex alignX='center'>
+						<Button 
+							isLoading={!canFetchMore || isFetchingMore}
+							disabled={!canFetchMore || isFetchingMore}
+							onClick={() => fetchMore()}
+						>
+							Load More
+						</Button> 
+					</Flex>
+				}
+			</ReactQueryCacheProvider>
+		</div>
 	);
 
 };

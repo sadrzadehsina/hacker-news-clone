@@ -10,6 +10,8 @@ import {
 	Icon,
 } from 'bumbag';
 
+import logo from '../../logo.png';
+
 const Header = () => {
 
 	const { colorMode, setColorMode } = useColorMode();
@@ -37,7 +39,7 @@ const Header = () => {
 		<TopNav>
 			<TopNav.Section>
 				<TopNav.Item href="#" fontWeight="semibold">
-					<Image src="https://news.ycombinator.com/y18.gif" />
+					<Image src={logo} />
 					<Heading use="h6" paddingX="minor-2">Hacker News Clone</Heading>
 				</TopNav.Item>
 			</TopNav.Section>
