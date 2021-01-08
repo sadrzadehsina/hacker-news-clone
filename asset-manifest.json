@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/hacker-news-clone/static/js/main.8b928851.chunk.js",
-    "main.js.map": "/hacker-news-clone/static/js/main.8b928851.chunk.js.map",
-    "runtime-main.js": "/hacker-news-clone/static/js/runtime-main.828cb71c.js",
-    "runtime-main.js.map": "/hacker-news-clone/static/js/runtime-main.828cb71c.js.map",
-    "static/js/2.24059ffb.chunk.js": "/hacker-news-clone/static/js/2.24059ffb.chunk.js",
-    "static/js/2.24059ffb.chunk.js.map": "/hacker-news-clone/static/js/2.24059ffb.chunk.js.map",
-    "static/js/3.ff829f64.chunk.js": "/hacker-news-clone/static/js/3.ff829f64.chunk.js",
-    "static/js/3.ff829f64.chunk.js.map": "/hacker-news-clone/static/js/3.ff829f64.chunk.js.map",
+    "main.js": "/hacker-news-clone/static/js/main.35d9799c.chunk.js",
+    "main.js.map": "/hacker-news-clone/static/js/main.35d9799c.chunk.js.map",
+    "runtime-main.js": "/hacker-news-clone/static/js/runtime-main.136b5f8b.js",
+    "runtime-main.js.map": "/hacker-news-clone/static/js/runtime-main.136b5f8b.js.map",
+    "static/js/2.b43e0ac0.chunk.js": "/hacker-news-clone/static/js/2.b43e0ac0.chunk.js",
+    "static/js/2.b43e0ac0.chunk.js.map": "/hacker-news-clone/static/js/2.b43e0ac0.chunk.js.map",
+    "static/js/3.96720bca.chunk.js": "/hacker-news-clone/static/js/3.96720bca.chunk.js",
+    "static/js/3.96720bca.chunk.js.map": "/hacker-news-clone/static/js/3.96720bca.chunk.js.map",
     "index.html": "/hacker-news-clone/index.html",
-    "static/js/2.24059ffb.chunk.js.LICENSE.txt": "/hacker-news-clone/static/js/2.24059ffb.chunk.js.LICENSE.txt"
+    "static/js/2.b43e0ac0.chunk.js.LICENSE.txt": "/hacker-news-clone/static/js/2.b43e0ac0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.828cb71c.js",
-    "static/js/2.24059ffb.chunk.js",
-    "static/js/main.8b928851.chunk.js"
+    "static/js/runtime-main.136b5f8b.js",
+    "static/js/2.b43e0ac0.chunk.js",
+    "static/js/main.35d9799c.chunk.js"
   ]
 }
